@@ -1,1 +1,1 @@
-import base_model.py
+from models.base_model import BaseModel
