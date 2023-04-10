@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from daatetime import datetime
+from datetime import datetime
 """
 
 class BaseModel that defines all common attributes/methods for other classes
