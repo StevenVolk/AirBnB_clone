@@ -36,4 +36,4 @@ class FileStorage:
         if os.path.exists(self.__file_path) is True:
             with open(self.__file_path, 'r') as rd:
                 for key, value in (json.load(rd)).items():
-                    self.__objects = eval(value["__class__"])(**value)
+                    self.__objects[key] = eval(value["__class__"])(**value)
