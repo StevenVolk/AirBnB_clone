@@ -33,10 +33,10 @@ class FileStorage:
         else:
             r_object = self.__objects
         with open(self.__file_path, 'w') as f:
-            f.write(json.dumps(r_object))
+            f.write(json.dump(r_object))
 
     def reload(self):
         if os.path.exists(self.__file_path) is True:
             with open(self.__file_path) as rd:
                 r_file = rd.read()
-            self.__objects = json.loads(r_file)
+            self.__objects = json.load(r_file)
