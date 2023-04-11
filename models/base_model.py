@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-from datetime import datetime
+import models
 import uuid
+from datetime import datetime
 """
 
 class BaseModel that defines all common attributes/methods for other classes
@@ -42,6 +43,8 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.now()
+        models.storage.new(self)
+        models.storage.save()
 
     def to_dict(self):
         self.__dict__["created_at"] = self.created_at.isoformat()
