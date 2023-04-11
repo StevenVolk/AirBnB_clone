@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import json
 import os
-from models.tmp_base_model import *
 from models.base_model import BaseModel
 """
 
@@ -33,7 +32,7 @@ class FileStorage:
         r_object.update(FileStorage.__objects)
         with open(FileStorage.__file_path, 'w') as f:
             for key, value in r_object.items():
-                r_object[key] = value.to_dict()
+                r_object[key] = value
             json.dump(r_object, f)
 
     def reload(self):
