@@ -31,7 +31,7 @@ class FileStorage:
         for key, value in self.__objects.items():
             r_object[key] = value
         with open(self.__file_path, 'w') as f:
-            f.write(json.dumps(r_object))
+            json.dump(r_object, f)
 
     def reload(self):
         if os.path.exists(self.__file_path) is True:
