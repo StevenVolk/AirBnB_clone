@@ -35,4 +35,5 @@ class FileStorage:
     def reload(self):
         if os.path.exists(self.__file_path) is True:
             with open(self.__file_path, 'r') as rd:
-                self.__objects = json.load(r_file, rd)
+                for key, value in (json.load(rd)).items():
+                    self.__objects = eval(value["__class__"])(**value)
