@@ -47,7 +47,8 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-        self.__dict__["created_at"] = self.created_at.isoformat()
-        self.__dict__["updated_at"] = self.updated_at.isoformat()
-        self.__dict__["__class__"] = self.__class__.__name__
-        return self.__dict__
+        d_dict = dict(self.__dict__)
+        d_dict["created_at"] = self.created_at.isoformat()
+        d_dict["updated_at"] = self.updated_at.isoformat()
+        d_dict["__class__"] = self.__class__.__name__
+        return d_dict
