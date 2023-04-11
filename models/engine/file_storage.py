@@ -20,21 +20,22 @@ class FileStorage:
     __objects = {}
 
     def all(self):
-        return self.__objects
+        return FileStorage.__objects
 
     def new(self, obj):
         if obj:
-            self.__objects["{}.{}".format(type(obj).__name__, obj.id)] = obj
+            FileStorage.__objects["{}.{}"\
+                    .format(type(obj).__name__, obj.id)] = obj
 
     def save(self):
         r_object = {}
-        for key, value in self.__objects.items():
+        for key, value in FileStorage.__objects.items():
             r_object[key] = value
-        with open(self.__file_path, 'w') as f:
+        with open(FileStorage.__file_path, 'w') as f:
             json.dump(r_object, f)
 
     def reload(self):
-        if os.path.exists(self.__file_path) is True:
-            with open(self.__file_path, 'r') as rd:
+        if os.path.exists(FileStorage.__file_path) is True:
+            with open(FileStorage.__file_path, 'r') as rd:
                 for key, value in (json.load(rd)).items():
-                    self.__objects[key] = value
+                    FileStorage.__objects[key] = value
