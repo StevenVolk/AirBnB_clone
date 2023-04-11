@@ -26,12 +26,9 @@ class FileStorage:
             self.__objects["{}.{}".format(type(obj).__name__, obj.id)] = obj
 
     def save(self):
-        r_object = self.reload()
-        if r_object:
-            for key, value in self.__objects:
-                r_object[key] = value
-        else:
-            r_object = self.__objects
+        r_object = {}
+        for key, value in self.__objects.items():
+            r_object[key] = value
         with open(self.__file_path, 'w') as f:
             json.dump(r_object, f)
 
