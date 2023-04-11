@@ -23,7 +23,7 @@ class FileStorage:
 
     def new(self, obj):
         if obj:
-            self.__objects[type(obj).__class__ + "." + obj.id] = obj
+            self.__objects["{}.{}".format(type(obj).__name__, obj.id)] = obj
 
     def save(self):
         r_object = self.reload()
