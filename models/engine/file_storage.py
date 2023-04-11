@@ -22,7 +22,7 @@ class FileStorage:
         return FileStorage.__objects
 
     def new(self, obj):
-        FileStorage.__objects[str(bj['__class__']) + "." +\
+        FileStorage.__objects[str(obj['__class__']) + "." +\
                 str(obj['id'])] = obj
 
     def save(self):
