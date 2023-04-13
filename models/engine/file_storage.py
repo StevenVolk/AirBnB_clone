@@ -30,13 +30,16 @@ class FileStorage:
     def save(self):
         r_object = {}
         r_object.update(self.__objects)
-        with open(self.__file_path, 'w') as f:
+        with open(self.__file_path, 'w', encoding='utf-8') as f:
             for key, value in r_object.items():
                 r_object[key] = value.to_dict()
             json.dump(r_object, f)
+            
 
     def reload(self):
         if os.path.exists(self.__file_path) is True:
-            with open(self.__file_path, 'r') as rd:
-                for key, value in (json.load(rd)).items():
+            with open(self.__file_path, 'r', encoding='utf-8') as rd:
+                file_json = json.load(rd)
+                for key, value in file_json.items():
+                    value = eval(value["__class__"])(**value)
                     self.__objects[key] = value
