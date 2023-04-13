@@ -28,10 +28,11 @@ class BaseModel:
                 self.id = str(uuid.uuid4())
             if "created_at" not in kwargs:
                 self.created_at = datetime.now()
-            if "created_at" in kwargs and "updated_at" not in kwargs:
-                self.updated_at = self.created_at
-            else:
-                self.updated_at = datetime.now()
+            if "updated_at" not in kwargs:
+                if "created_at" in kwargs:
+                    self.updated_at = self.created_at
+                else:
+                    self.updated_at = datetime.now()
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
