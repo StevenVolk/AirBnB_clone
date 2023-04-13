@@ -33,10 +33,11 @@ class HBNBCommand(cmd.Cmd):
 
 """
 
-if class called, loop
+if called, loop
 
 """
 
 
 if __name__ == '__main__':
+    """ if called, loop """
     HBNBCommand().cmdloop()
