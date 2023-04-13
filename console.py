@@ -9,6 +9,12 @@ command interpreter
 
 
 class HBNBCommand(cmd.Cmd):
+    """
+
+    class HBNBCommand, entry point of command interpreter
+
+    """
+
     prompt = "(hbnb) "
 
     def do_quit(self, arg):
