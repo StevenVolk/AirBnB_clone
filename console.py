@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 import cmd
 """
 
@@ -31,14 +31,5 @@ class HBNBCommand(cmd.Cmd):
         print("EOF command to exit the program")
         print()
 
-"""
-
-if called, loop
-
-"""
-
-
 if __name__ == '__main__':
-    """ if called, loop """
-
     HBNBCommand().cmdloop()
