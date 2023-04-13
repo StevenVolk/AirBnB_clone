@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import json
 import os
+import models.base_model import BaseModel
 """
 
 class FileStorage
@@ -24,14 +25,14 @@ class FileStorage:
     def new(self, obj):
         if obj:
             FileStorage.__objects["{}.{}"\
-                    .format(type(obj).__name__, obj.id)] = obj
+                    .format(type(obj).__name__, obj.id)] = obj.to_dict()
 
     def save(self):
         r_object = {}
         r_object.update(FileStorage.__objects)
         with open(FileStorage.__file_path, 'w') as f:
             for key, value in r_object.items():
-                r_object[key] = value.to_dict()
+                r_object[key] = value
             json.dump(r_object, f)
 
     def reload(self):
