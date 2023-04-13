@@ -40,4 +40,5 @@ if called, loop
 
 if __name__ == '__main__':
     """ if called, loop """
+
     HBNBCommand().cmdloop()
