@@ -25,14 +25,14 @@ class FileStorage:
     def new(self, obj):
         if obj:
             FileStorage.__objects["{}.{}"\
-                    .format(type(obj).__name__, obj.id)] = obj.to_dict()
+                    .format(type(obj).__name__, obj.id)] = obj
 
     def save(self):
         r_object = {}
         r_object.update(FileStorage.__objects)
         with open(FileStorage.__file_path, 'w') as f:
             for key, value in r_object.items():
-                r_object[key] = value
+                r_object[key] = value.to_dict()
             json.dump(r_object, f)
 
     def reload(self):
