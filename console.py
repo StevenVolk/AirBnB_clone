@@ -38,7 +38,7 @@ class HBNBCommand(cmd.Cmd):
         print("EOF command to exit the program")
         print()
 
-    def emptyline():
+    def emptyline(self):
         pass
 
 """ loop if called """
